@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-@Service
+//@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -17,7 +17,7 @@ public class MemberService {
     // private final MemberRepository memberRepository = new MemoryMemberRepository();
 
     // TODO 3. 서비스 생성시에 외부에서 넣어주도록 -> DI 생성자 주입
-    @Autowired
+    //@Autowired -> TODO (1). 아예 직접 생성. SpringConfig class.
     public MemberService(MemberRepository memberRepository) {
         // @Repository 붙어있는 구현체 찾아서 생성해줌
         this.memberRepository = memberRepository;
