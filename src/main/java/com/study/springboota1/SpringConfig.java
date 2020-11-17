@@ -6,9 +6,17 @@ import com.study.springboota1.service.MemberService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.sql.DataSource;
+
 // TODO (2). 빈 직접 등록. 장단점이 있다.
 @Configuration
 public class SpringConfig {
+
+    private final DataSource dataSource;
+
+    public SpringConfig(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     @Bean
     public MemberService memberService() {
