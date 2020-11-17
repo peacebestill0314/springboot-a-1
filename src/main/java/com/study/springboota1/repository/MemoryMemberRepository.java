@@ -2,14 +2,11 @@ package com.study.springboota1.repository;
 
 import com.study.springboota1.domain.Member;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
 
-    // todo static, Map 추상 HashMap 구현
+    // todo static, Map추상 HashMap구현
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
 
@@ -29,6 +26,7 @@ public class MemoryMemberRepository implements MemberRepository{
     @Override
     public Optional<Member> findByName(String name) {
         // todo lambda stream
+        // 참고 https://sehun-kim.github.io/sehun/java-lambda-stream/
         return store.values().stream()
                 .filter(member -> member.getName().equals(name))
                 .findAny();
@@ -36,6 +34,10 @@ public class MemoryMemberRepository implements MemberRepository{
 
     @Override
     public List<Member> findAll() {
-        return null;
+        return new ArrayList<>(store.values());
+    }
+
+    public void clearStore() {
+        store.clear();
     }
 }
