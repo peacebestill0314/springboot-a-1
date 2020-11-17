@@ -2,10 +2,13 @@ package com.study.springboota1.service;
 
 import com.study.springboota1.domain.Member;
 import com.study.springboota1.repository.MemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
@@ -13,8 +16,10 @@ public class MemberService {
     // TODO 2. 어디서나 같은 인스턴스 쓰게 바꾸기
     // private final MemberRepository memberRepository = new MemoryMemberRepository();
 
-    // TODO 3. 서비스 생성시에 외부에서 넣어주도록 -> DI
+    // TODO 3. 서비스 생성시에 외부에서 넣어주도록 -> DI 생성자 주입
+    @Autowired
     public MemberService(MemberRepository memberRepository) {
+        // @Repository 붙어있는 구현체 찾아서 생성해줌
         this.memberRepository = memberRepository;
     }
 

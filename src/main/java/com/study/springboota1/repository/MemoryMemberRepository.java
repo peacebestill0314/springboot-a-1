@@ -1,9 +1,11 @@
 package com.study.springboota1.repository;
 
 import com.study.springboota1.domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
 
     // todo static, Map추상 HashMap구현
