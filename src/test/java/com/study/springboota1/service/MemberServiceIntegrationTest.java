@@ -2,16 +2,12 @@ package com.study.springboota1.service;
 
 import com.study.springboota1.domain.Member;
 import com.study.springboota1.repository.MemberRepository;
-import com.study.springboota1.repository.MemoryMemberRepository;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest
 // @Transactional
@@ -27,7 +23,7 @@ class MemberServiceIntegrationTest {
     void join() {
         //given
         Member member = new Member();
-        member.setName("hello1");
+        member.setName("hello4");
 
         //when
         Long saveId = memberService.join(member);
@@ -41,10 +37,10 @@ class MemberServiceIntegrationTest {
     void 중복_예외() {
         //given
         Member member1 = new Member();
-        member1.setName("spring2");
+        member1.setName("spring5");
 
         Member member2 = new Member();
-        member2.setName("spring");
+        member2.setName("spring5");
 
         //when
         memberService.join(member1);
